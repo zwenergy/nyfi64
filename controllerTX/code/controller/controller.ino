@@ -64,7 +64,7 @@ RF24 radio(9,10);
 ); \
 asm ( \
   "sbi %0, %1 \n" \
-    : : "I" (_SFR_IO_ADDR(DDRD)), "I" (DDD2)\
+  : : "I" (_SFR_IO_ADDR(DDRD)), "I" (DDD2)\
 )
 
 // Write high. -> takes 0.125 us
@@ -428,40 +428,40 @@ _readMainStat:
 
 // Function to turn on or off rumble feature.
 void rumble( bool turnOn ) {
-    noInterrupts();
-    uint8_t datByteSent = 0;
-    // First send write command and the address.
-    WRITE0;
-    WRITE0;
-    WRITE0;
-    WRITE0;
-    
-    WRITE0;
-    WRITE0;
-    WRITE1;
-    WRITE1;
-
-
-    WRITE1;
-    WRITE1;
-    WRITE0;
-    WRITE0;
-
-    WRITE0;
-    WRITE0;
-    WRITE0;
-    WRITE0;
-
-
-    WRITE0;
-    WRITE0;
-    WRITE0;
-    WRITE1;
-
-    WRITE1;
-    WRITE0;
-    WRITE1;
-    WRITE1S;
+  noInterrupts();
+  uint8_t datByteSent = 0;
+  // First send write command and the address.
+  WRITE0;
+  WRITE0;
+  WRITE0;
+  WRITE0;
+  
+  WRITE0;
+  WRITE0;
+  WRITE1;
+  WRITE1;
+  
+  
+  WRITE1;
+  WRITE1;
+  WRITE0;
+  WRITE0;
+  
+  WRITE0;
+  WRITE0;
+  WRITE0;
+  WRITE0;
+  
+  
+  WRITE0;
+  WRITE0;
+  WRITE0;
+  WRITE1;
+  
+  WRITE1;
+  WRITE0;
+  WRITE1;
+  WRITE1S;
 
   // And now the data.
   if ( turnOn ) {
